@@ -1,38 +1,25 @@
-print('Введите число в арабской системе от 1 до 2000')
-arab_digits = input()
-#print(len(arab_digits))
-dict_thousands = dict(([1, 2],['M', 'MM']))
-dict_hundreds = dict(zip(['C', 'CC', 'CCC', 'CD', 'D', 'DI', 'DII', 'DIII','CM', ''], [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
-dict_tens = dict(zip(['X', 'XX', 'XXX', 'XL', 'L', 'LI', 'LII', 'LIII','XC', ''], [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
-dict_digits = dict(zip(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII','IX', 'X'], [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+print('Введите число в арабской системе счисления от 1 до 2000')
+arab_digits1 = input()
+arab_digits = arab_digits1[::-1]
 
-rome_thousands = dict_thousands(int(arab_digits[0]))
-print(rome_thousands)
+dict_thousands = {1:'M', 2:'MM'}
+dict_hundreds = {1:'C', 2:'CC', 3:'CCC', 4:'CD', 5:'D', 6:'DI', 7:'DII', 8:'DIII', 9:'CM', 0:''}
+dict_tens = {1:'X', 2:'XX', 3:'XXX', 4:'XL', 5:'L', 6:'LI', 7:'LII', 8:'LIII', 9:'XC', 0:''}
+dict_digits = {1:'I', 2:'II', 3:'III', 4:'IV', 5:'V', 6:'VI', 7:'VII', 8:'VIII', 9:'IX', 0:''}
 
-# for i in range(0,len(arab_digits)):
-#     if i == 0:
-#         rome_thousands = dict_thousands(arab_digits[i])        
-#     print(rome_thousands)
-    
-#     if i == 1:
-#         rome_hundreds = dict_hundreds(arab_digits[i])        
-#     print(rome_hundreds)
+rome_tens = ""
+rome_digits = ""
+rome_hundreds = ""
+rome_thousands = ""
 
-#     if i == 2:
-#         rome_tens = dict_tens(arab_digits[i])        
-#     print(rome_tens)
+for i in range(0,len(arab_digits)):
+    if i == 0:
+        rome_digits = dict_digits[int(arab_digits[i])]                     
+    elif i == 1:
+        rome_tens = dict_tens[int(arab_digits[i])]        
+    elif i == 2:
+        rome_hundreds = dict_hundreds[int(arab_digits[i])]
+    elif i == 3:
+        rome_thousands = dict_thousands[int(arab_digits[i])]        
 
-#     if i == 3:
-#         rome_digits = dict_digits(arab_digits[i])        
-#     print(rome_digits)
-
-# print(rome_thousands, rome_hundreds, rome_tens, rome_digits)
-
-
-# for i in range(0,len(arab_digits)):
-#     print(arab_digits[i])
-#my_dict = dict(zip(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII',], [1, 2, 3]))  
-#my_value = my_dict['key']
-
-# for digit in len(arab_digits):
-#     if len(arab_digits) == 4:
+print('Число в римской системе счисления - ', rome_thousands + rome_hundreds + rome_tens + rome_digits)
