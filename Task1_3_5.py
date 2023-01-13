@@ -8,7 +8,11 @@
 # Гарантируется, что введенная строка X будет содержать только числа 1 и 0.
 
 print('Введите первую строку:')
-strX = int(input(), 2)
+strX = input()
+print(strX, int(strX, 2))
 print('Введите вторую строку:')
-strY = int(input(), 2)
-print('Бинарное произведение будет: ', bin(strX*strY))
+strY = input()
+print(strY, int(strY, 2))
+# print(strX&strY, int(strY, 2))
+strZ = str(bin(int(strX, 2)*int(strY, 2)))
+print('Бинарное произведение будет: ', strZ[2:len(strZ)])
